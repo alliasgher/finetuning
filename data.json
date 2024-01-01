@@ -1,0 +1,402 @@
+[
+    {
+        "gremlin_query": "g.V().has('KType', 'ecs.Cluster').count()",
+        "text_queries": [
+            {"query": "How many ECS clusters are currently in the system?", "visualization": "count-card"},
+            {"query": "Show me the total number of ECS clusters available.", "visualization": "count-card"},
+            {"query": "Can you count all the ECS clusters?", "visualization": "count-card"},
+            {"query": "What is the total count of ECS clusters in our environment?", "visualization": "count-card"},
+            {"query": "Are there any ECS clusters, and if so, how many?", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ecs.Task').count()",
+        "text_queries": [
+            {"query": "How many ECS tasks are currently running?", "visualization": "count-card"},
+            {"query": "Show the count of all ECS tasks in the system.", "visualization": "count-card"},
+            {"query": "What is the total number of ECS tasks active now?", "visualization": "count-card"},
+            {"query": "Can you provide the count of ECS tasks we have?", "visualization": "count-card"},
+            {"query": "I need to know how many ECS tasks are there in total.", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.ReservedInstances').count()",
+        "text_queries": [
+            {"query": "How many EC2 Reserved Instances do we have?", "visualization": "count-card"},
+            {"query": "What's the total count of EC2 Reserved Instances?", "visualization": "count-card"},
+            {"query": "Can you tell me the number of EC2 Reserved Instances?", "visualization": "count-card"},
+            {"query": "Show the total EC2 Reserved Instances in our infrastructure.", "visualization": "count-card"},
+            {"query": "I'd like to know the count of all EC2 Reserved Instances.", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Instance').has('State', 'running').count()",
+        "text_queries": [
+            {"query": "How many running EC2 instances are there currently?", "visualization": "count-card"},
+            {"query": "Show me the number of EC2 instances in a running state.", "visualization": "count-card"},
+            {"query": "What is the total count of active EC2 instances?", "visualization": "count-card"},
+            {"query": "Can you count the EC2 instances that are currently running?", "visualization": "count-card"},
+            {"query": "I need the current count of running EC2 instances.", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Volume').count()",
+        "text_queries": [
+            {"query": "How many EC2 volumes do we have in total?", "visualization": "count-card"},
+            {"query": "What is the total number of EC2 volumes?", "visualization": "count-card"},
+            {"query": "Can you give me the count of all EC2 volumes?", "visualization": "count-card"},
+            {"query": "Show the total count of EC2 volumes in the system.", "visualization": "count-card"},
+            {"query": "I want to know the number of EC2 volumes available.", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.SecurityGroup').count()",
+        "text_queries": [
+            {"query": "How many EC2 security groups are there?", "visualization": "count-card"},
+            {"query": "What's the total number of EC2 security groups?", "visualization": "count-card"},
+            {"query": "Can you tell me the count of EC2 security groups?", "visualization": "count-card"},
+            {"query": "Show the count of all EC2 security groups in our network.", "visualization": "count-card"},
+            {"query": "I need to know the total EC2 security groups.", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.KeyPairInfo').not(inE('aws.Instance.HasKeyPair')).count()",
+        "text_queries": [
+            {"query": "How many EC2 Key Pairs are unused in our system?", "visualization": "count-card"},
+            {"query": "Show the count of EC2 Key Pairs not associated with any instance.", "visualization": "count-card"},
+            {"query": "What's the total number of unused EC2 Key Pairs?", "visualization": "count-card"},
+            {"query": "Can you give me the count of EC2 Key Pairs that are not in use?", "visualization": "count-card"},
+            {"query": "I need to know how many EC2 Key Pairs are currently unattached.", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Address').not(inE('aws.Instance.AssociatedWith')).count()",
+        "text_queries": [
+            {"query": "How many EC2 Addresses are not associated with any instances?", "visualization": "count-card"},
+            {"query": "Show the total count of unassociated EC2 Addresses.", "visualization": "count-card"},
+            {"query": "What is the number of EC2 Addresses currently unused?", "visualization": "count-card"},
+            {"query": "Can you count the EC2 Addresses that are not in use?", "visualization": "count-card"},
+            {"query": "I'd like to know the count of EC2 Addresses without any association.", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Instance').has('InstanceLifecycle', 'spot').count()",
+        "text_queries": [
+            {"query": "How many EC2 Spot Instances are currently active?", "visualization": "count-card"},
+            {"query": "What's the total count of EC2 Spot Instances in our network?", "visualization": "count-card"},
+            {"query": "Can you show the number of active EC2 Spot Instances?", "visualization": "count-card"},
+            {"query": "Show me the total EC2 Spot Instances in operation.", "visualization": "count-card"},
+            {"query": "I need to know the count of all EC2 Spot Instances.", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Snapshot').has('Encrypted',false).count()",
+        "text_queries": [
+            {"query": "How many unencrypted EC2 Snapshots do we have?", "visualization": "count-card"},
+            {"query": "What is the total number of EC2 Snapshots that are not encrypted?", "visualization": "count-card"},
+            {"query": "Can you give me the count of non-encrypted EC2 Snapshots?", "visualization": "count-card"},
+            {"query": "Show the count of EC2 Snapshots without encryption.", "visualization": "count-card"},
+            {"query": "I need the total of EC2 Snapshots that are unencrypted.", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Instance').has('InstanceLifecycle', 'scheduled').count()",
+        "text_queries": [
+            {"query": "How many EC2 Scheduled Instances are there?", "visualization": "count-card"},
+            {"query": "Show the count of EC2 Instances with a scheduled lifecycle.", "visualization": "count-card"},
+            {"query": "What's the total number of EC2 Scheduled Instances?", "visualization": "count-card"},
+            {"query": "Can you tell me the count of EC2 Instances scheduled for specific times?", "visualization": "count-card"},
+            {"query": "I'd like to know how many EC2 Instances are set to a scheduled lifecycle.", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Volume').has('Encrypted', false).count()",
+        "text_queries": [
+            {"query": "How many EC2 Volumes are there without encryption?", "visualization": "count-card"},
+            {"query": "What is the total count of unencrypted EC2 Volumes?", "visualization": "count-card"},
+            {"query": "Can you show the number of EC2 Volumes that are not encrypted?", "visualization": "count-card"},
+            {"query": "Show me the count of EC2 Volumes lacking encryption.", "visualization": "count-card"},
+            {"query": "I need to know the total of unencrypted EC2 Volumes.", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ecs.Cluster').groupCount().by('Region')",
+        "text_queries": [
+            {"query": "Show me the distribution of ECS clusters by region.", "visualization": "bar-chart"},
+            {"query": "How are ECS clusters distributed across different regions?", "visualization": "pie-chart"},
+            {"query": "Can you display the regional breakdown of ECS clusters?", "visualization": "bar-chart"},
+            {"query": "I need a regional distribution chart of ECS clusters.", "visualization": "pie-chart"},
+            {"query": "What is the count of ECS clusters in each region?", "visualization": "bar-chart"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Address').groupCount().by('Domain')",
+        "text_queries": [
+            {"query": "How many EC2 Addresses are there in each domain?", "visualization": "bar-chart"},
+            {"query": "Show the distribution of EC2 Addresses by domain.", "visualization": "pie-chart"},
+            {"query": "Can you provide a domain-wise breakdown of EC2 Addresses?", "visualization": "bar-chart"},
+            {"query": "I'd like to see a chart showing EC2 Addresses in each domain.", "visualization": "pie-chart"},
+            {"query": "What's the distribution of EC2 Addresses across different domains?", "visualization": "bar-chart"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'lambda.Function').groupCount().by('Runtime')",
+        "text_queries": [
+            {"query": "Show the count of Lambda functions by runtime environment.", "visualization": "bar-chart"},
+            {"query": "How are Lambda functions distributed among different runtimes?", "visualization": "pie-chart"},
+            {"query": "Can you display the distribution of Lambda runtimes?", "visualization": "bar-chart"},
+            {"query": "I need a breakdown of Lambda functions based on their runtime.", "visualization": "pie-chart"},
+            {"query": "What is the distribution of Lambda functions across various runtimes?", "visualization": "bar-chart"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Instance').groupCount().by('State')",
+        "text_queries": [
+            {"query": "How many EC2 Instances are there in each state?", "visualization": "bar-chart"},
+            {"query": "Show the distribution of EC2 Instances by their state.", "visualization": "pie-chart"},
+            {"query": "Can you provide a state-wise breakdown of EC2 Instances?", "visualization": "bar-chart"},
+            {"query": "I'd like to see a chart of EC2 Instances distributed by state.", "visualization": "pie-chart"},
+            {"query": "What's the count of EC2 Instances in different states?", "visualization": "bar-chart"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ecs.Cluster').outE('aws.Cluster.HasServices').inV().path()",
+        "text_queries": [
+            {"query": "Show me the paths from ECS clusters to their associated services.", "visualization": "graph"},
+            {"query": "Can you display the services connected to each ECS cluster?", "visualization": "graph"},
+            {"query": "I need to see the relationship between ECS clusters and their services.", "visualization": "graph"},
+            {"query": "How are ECS clusters linked to services in our network?", "visualization": "graph"},
+            {"query": "What services are associated with each ECS cluster?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Instance').out('aws.IamInstanceProfile.LinkedWith').in('aws.Role.HasInstanceProfiles').select('a')",
+        "text_queries": [
+            {"query": "Show the connections between EC2 instances and IAM roles.", "visualization": "graph"},
+            {"query": "Can you map out the EC2 instances and their linked IAM roles?", "visualization": "graph"},
+            {"query": "I want to see how EC2 instances are associated with IAM roles.", "visualization": "graph"},
+            {"query": "How are IAM roles connected to EC2 instances in our system?", "visualization": "graph"},
+            {"query": "What IAM roles are linked to each EC2 instance?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Instance').where(out('aws.Instance.HasSecurityGroup').dedup().outE().has('KType', 'aws.SecurityGroup.HasIpPermissions'))",
+        "text_queries": [
+            {"query": "Show the security groups with IP permissions for each EC2 instance.", "visualization": "graph"},
+            {"query": "Can you display the unique security groups and their permissions for EC2 instances?", "visualization": "graph"},
+            {"query": "I need a graph showing EC2 instances and their security groups' IP permissions.", "visualization": "graph"},
+            {"query": "How are IP permissions set for security groups linked to EC2 instances?", "visualization": "graph"},
+            {"query": "What are the IP permissions for each security group associated with EC2 instances?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Snapshot').where(out('aws.Snapshot.HasCreateVolumePermissions').not(has('Group', 'all')))",
+        "text_queries": [
+            {"query": "Show EC2 Snapshots that have specific volume creation permissions.", "visualization": "graph"},
+            {"query": "Can you identify EC2 Snapshots with limited volume creation permissions?", "visualization": "graph"},
+            {"query": "I want to see EC2 Snapshots that don't allow volume creation for all groups.", "visualization": "graph"},
+            {"query": "How are volume creation permissions set for each EC2 Snapshot?", "visualization": "graph"},
+            {"query": "What are the restrictions on volume creation permissions for EC2 Snapshots?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ecs.Cluster').outE('aws.Cluster.HasTasks').inV().path()",
+        "text_queries": [
+            {"query": "Show the paths from ECS clusters to their associated tasks.", "visualization": "graph"},
+            {"query": "Can you display the tasks connected to each ECS cluster?", "visualization": "graph"},
+            {"query": "I need to see the relationship between ECS clusters and their tasks.", "visualization": "graph"},
+            {"query": "How are ECS clusters linked to tasks in our network?", "visualization": "graph"},
+            {"query": "What tasks are associated with each ECS cluster?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Instance').where(out('aws.Instance.HasImage').dedup())",
+        "text_queries": [
+            {"query": "Show the unique images used by each EC2 instance.", "visualization": "graph"},
+            {"query": "Can you display the distinct images associated with EC2 instances?", "visualization": "graph"},
+            {"query": "I want to see how EC2 instances are linked to different images.", "visualization": "graph"},
+            {"query": "How are images assigned to EC2 instances in our system?", "visualization": "graph"},
+            {"query": "What images are each EC2 instance using?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 's3.Bucket').outE('aws.PolicyResource').or(__.not(has('condition')), has('condition', true)).inV().union(has('KType', 'iam.User'), __.has('KType', 'iam.Group').out('aws.User.IsPartOf'))",
+        "text_queries": [
+            {"query": "Show the relationship between S3 Buckets and IAM Users or Groups based on policy conditions.", "visualization": "graph"},
+            {"query": "Can you display how S3 Buckets are connected to IAM Users and Groups with or without conditions?", "visualization": "graph"},
+            {"query": "I need a graph showing S3 Buckets linked to either IAM Users or Groups, considering policy conditions.", "visualization": "graph"},
+            {"query": "How are S3 Buckets associated with IAM Users and Groups under specific policy conditions?", "visualization": "graph"},
+            {"query": "What are the connections between S3 Buckets and IAM Users/Groups based on their policy conditions?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Instance').where(out('aws.Instance.HasSecurityGroup').dedup().outE().has('KType', 'aws.SecurityGroup.HasIpPermissions')).union(count().project('Public').unfold(), count().as('a').math('a - _'))",
+        "text_queries": [
+            {"query": "Show a graph of EC2 Instances and their unique Security Groups with IP permissions, along with a count of public and non-public instances.", "visualization": "graph"},
+            {"query": "Can you display EC2 Instances, their Security Groups' IP permissions, and differentiate between public and non-public instances?", "visualization": "graph"},
+            {"query": "I need to see EC2 Instances linked to Security Groups with IP permissions, and distinguish public from non-public instances.", "visualization": "graph"},
+            {"query": "How are EC2 Instances associated with Security Groups in terms of IP permissions, and what are the counts of public vs non-public instances?", "visualization": "graph"},
+            {"query": "What is the relationship between EC2 Instances, their Security Groups' IP permissions, and the distribution of public and non-public instances?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'iam.AccessKey').has('CreateDate').where(values('CreateDate').as('date').math('(nowMillis-date)/24HrMillis').is(lte(7))).inE('aws.User.HasAccessKeys').outV().path().unfold()",
+        "text_queries": [
+            {"query": "Show IAM Access Keys created within the last 7 days and their associated users.", "visualization": "graph"},
+            {"query": "Can you display IAM Access Keys less than a week old and their users?", "visualization": "graph"},
+            {"query": "I need a graph of recent IAM Access Keys (created within 7 days) and the users they belong to.", "visualization": "graph"},
+            {"query": "How are newly created IAM Access Keys (within 7 days) connected to their users?", "visualization": "graph"},
+            {"query": "What are the connections between recent IAM Access Keys and their respective users?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'virtualnetwork.VirtualNetwork').outE('azure.VirtualNetwork.HasSubnets').inV().filter(__.or(__.not(__.in('azure.SecurityGroup.HasSubnets')), __.filter(__.in('azure.SecurityGroup.HasSubnets').out('azure.SecurityGroup.HasSecurityRules').has('Direction','Inbound').has('Access','Allow'))))",
+        "text_queries": [
+            {"query": "Show how Virtual Networks are connected to Subnets and relevant Security Groups with inbound allow rules.", "visualization": "graph"},
+            {"query": "Can you display Virtual Networks, their Subnets, and Security Groups that have inbound allow rules?", "visualization": "graph"},
+            {"query": "I need to see Virtual Networks linked to Subnets and filtered by Security Groups with specific inbound rules.", "visualization": "graph"},
+            {"query": "How are Virtual Networks associated with Subnets and Security Groups, especially those with inbound allow rules?", "visualization": "graph"},
+            {"query": "What is the relationship between Virtual Networks, their Subnets, and Security Groups focusing on inbound permissions?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'iam.PasswordPolicy').as('pp').choose(has('MaxPasswordAge', gt(90)), constant('x | Maximum password age of 90 days is not being enforced'))",
+        "text_queries": [
+            {"query": "Check if the IAM Password Policy enforces a maximum password age of 90 days.", "visualization": "text display"},
+            {"query": "Does our IAM Password Policy set a maximum password age limit of 90 days?", "visualization": "text display"},
+            {"query": "I need to know if the IAM Password Policy exceeds a 90-day maximum password age.", "visualization": "text display"},
+            {"query": "Is the maximum password age in our IAM Password Policy more than 90 days?", "visualization": "text display"},
+            {"query": "Verify whether the IAM Password Policy has a maximum password age limit exceeding 90 days.", "visualization": "text display"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'iam.AccessKey').has('CreateDate').where(values('CreateDate').as('date').math('(nowMillis-date)/24HrMillis').is(gt(90)))",
+        "text_queries": [
+            {"query": "Find all IAM Access Keys older than 90 days.", "visualization": "count-card"},
+            {"query": "How many IAM Access Keys have been created more than 90 days ago?", "visualization": "count-card"},
+            {"query": "Show IAM Access Keys that are older than 90 days.", "visualization": "count-card"},
+            {"query": "I need a count of IAM Access Keys that exceed a 90-day lifespan.", "visualization": "count-card"},
+            {"query": "Can you count IAM Access Keys with a creation date older than 90 days?", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'iam.User').has('PasswordLastUsed').where(values('PasswordLastUsed').as('lastUsed').math('(nowMillis-lastUsed)/24HrMillis').is(gt(30)))",
+        "text_queries": [
+            {"query": "Identify IAM Users whose passwords haven't been used in the last 30 days.", "visualization": "count-card"},
+            {"query": "How many IAM Users have passwords last used more than 30 days ago?", "visualization": "count-card"},
+            {"query": "Show IAM Users with passwords not used in over 30 days.", "visualization": "count-card"},
+            {"query": "I need to know the number of IAM Users with inactive passwords for more than 30 days.", "visualization": "count-card"},
+            {"query": "Can you count the IAM Users with passwords last used beyond 30 days ago?", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'iam.Policy').where(out('aws.Policy.HasPolicyDocument').out('aws.PolicyDocument.HasStatement').has('Actions', within('s3:*', 'dynamodb:*')))",
+        "text_queries": [
+            {"query": "Find all IAM Policies with actions related to S3 or DynamoDB.", "visualization": "count-card"},
+            {"query": "How many IAM Policies include actions for S3 and DynamoDB?", "visualization": "count-card"},
+            {"query": "Show IAM Policies that have permissions for S3 or DynamoDB services.", "visualization": "count-card"},
+            {"query": "I need to count IAM Policies that specify actions on S3 or DynamoDB.", "visualization": "count-card"},
+            {"query": "Can you count the IAM Policies with actions involving S3 or DynamoDB?", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 's3.Bucket').where(outE('aws.Bucket.HasPublicAccessBlock'))",
+        "text_queries": [
+            {"query": "Find all S3 Buckets with public access blocks.", "visualization": "count-card"},
+            {"query": "How many S3 Buckets have public access block settings enabled?", "visualization": "count-card"},
+            {"query": "Show S3 Buckets that are configured with public access blocks.", "visualization": "count-card"},
+            {"query": "I need a count of S3 Buckets with public access blocking.", "visualization": "count-card"},
+            {"query": "Can you count the S3 Buckets that have public access restrictions?", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'ec2.Volume').not(where(out('aws.Volume.HasAttachments').has('State', within('attaching', 'attached'))))",
+        "text_queries": [
+            {"query": "Identify EC2 Volumes that are not in 'attaching' or 'attached' state.", "visualization": "count-card"},
+            {"query": "How many EC2 Volumes are neither attaching nor attached?", "visualization": "count-card"},
+            {"query": "Show EC2 Volumes not currently attached or in the process of attaching.", "visualization": "count-card"},
+            {"query": "I need to know the count of EC2 Volumes without attachments or in attaching state.", "visualization": "count-card"},
+            {"query": "Can you count the EC2 Volumes that are detached?", "visualization": "count-card"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'elb.LoadBalancer').groupCount().by(selectedDimension)",
+        "text_queries": [
+            {"query": "Show the distribution of ELB Load Balancers by a selected dimension (e.g., region, type).", "visualization": "bar-chart"},
+            {"query": "How are ELB Load Balancers grouped based on a particular dimension like region or type?", "visualization": "pie-chart"},
+            {"query": "Can you display the count of ELB Load Balancers in each category of a specified dimension?", "visualization": "bar-chart"},
+            {"query": "I need a breakdown of ELB Load Balancers according to a certain dimension.", "visualization": "pie-chart"},
+            {"query": "What is the distribution of ELB Load Balancers across different values of a selected dimension?", "visualization": "bar-chart"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'route53.ResourceRecordSet').has('Type', selectedDimension).valueMap('Name')",
+        "text_queries": [
+            {"query": "List the names of Route 53 Resource Record Sets of a specific type (e.g., A, AAAA, CNAME).", "visualization": "list display"},
+            {"query": "Show all Route 53 Resource Record Set names for a selected type.", "visualization": "list display"},
+            {"query": "Can you provide the names of Route 53 Resource Record Sets filtered by a particular type?", "visualization": "list display"},
+            {"query": "I need to see Route 53 Resource Record Set names for a certain record type.", "visualization": "list display"},
+            {"query": "What are the names of Route 53 Resource Record Sets that fall under a specific type?", "visualization": "list display"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V(nodeId).out().dedup().as('node').project('id', 'label', 'properties', 'edges')",
+        "text_queries": [
+            {"query": "Retrieve detailed information including ID, label, properties, and edges for nodes connected to a specific node.", "visualization": "list display"},
+            {"query": "Show all unique nodes connected to a given node along with their details.", "visualization": "list display"},
+            {"query": "Can you list the properties and relationships of nodes directly connected to a specified node?", "visualization": "list display"},
+            {"query": "I need to see all unique nodes linked to a certain node, including their identifiers and properties.", "visualization": "list display"},
+            {"query": "What are the details of nodes that are directly connected to a specific node in our graph?", "visualization": "list display"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V(selectedNodeID).outE('aws.Bucket.HasBucketPolicy').inV().path().unfold()",
+        "text_queries": [
+            {"query": "Show the paths from a selected AWS bucket node to its bucket policies.", "visualization": "graph"},
+            {"query": "Can you display the relationships between a specific AWS bucket and its bucket policies?", "visualization": "graph"},
+            {"query": "I need to see the connections and policies associated with a selected AWS bucket.", "visualization": "graph"},
+            {"query": "How are bucket policies linked to a particular AWS bucket?", "visualization": "graph"},
+            {"query": "What are the bucket policies associated with a specific AWS bucket node?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V(selectedNodeID).outE('database.Table.HasColumnList').inV().path().unfold()",
+        "text_queries": [
+            {"query": "Display the paths from a selected database table to its columns.", "visualization": "graph"},
+            {"query": "Can you show the column structure for a specific database table?", "visualization": "graph"},
+            {"query": "I need to visualize the relationships between a database table and its columns.", "visualization": "graph"},
+            {"query": "How are columns connected to a particular database table?", "visualization": "graph"},
+            {"query": "What columns are associated with a specific database table node?", "visualization": "graph"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'route53domains.Domain').valueMap('DomainName')",
+        "text_queries": [
+            {"query": "List all domain names for Route 53 domains.", "visualization": "list display"},
+            {"query": "Show the names of all domains managed in Route 53.", "visualization": "list display"},
+            {"query": "Can you provide a list of domain names from Route 53 domains?", "visualization": "list display"},
+            {"query": "I need to see all Route 53 domain names in our system.", "visualization": "list display"},
+            {"query": "What are the domain names currently registered in Route 53?", "visualization": "list display"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().has('KType', 'virtualnetwork.VirtualNetwork').as('v').out('azure.VirtualNetwork.HasSubnets').out('azure.Subnet.HasRouteTable').groupCount().by(select('v').values('Name'))",
+        "text_queries": [
+            {"query": "Show a count of route tables associated with each Azure Virtual Network.", "visualization": "bar-chart"},
+            {"query": "Can you display the number of route tables for each Azure Virtual Network by name?", "visualization": "bar-chart"},
+            {"query": "I need a breakdown of route tables linked to Azure Virtual Networks.", "visualization": "bar-chart"},
+            {"query": "How many route tables are connected to each Azure Virtual Network?", "visualization": "bar-chart"},
+            {"query": "What is the distribution of route tables across Azure Virtual Networks?", "visualization": "bar-chart"}
+        ]
+    },
+    {
+        "gremlin_query": "g.V().or(has('KType', 'github.Repository'), has('KType', 'azuredevops.Repository')).or(__.in('github.Package.HasRepository'), out('Repository.HasImage')).count()",
+        "text_queries": [
+            {"query": "Count the total number of GitHub and Azure DevOps repositories, including those linked to packages and images.", "visualization": "count-card"},
+            {"query": "How many repositories are there in GitHub and Azure DevOps, including those with packages and images?", "visualization": "count-card"},
+            {"query": "Show the total count of repositories from GitHub and Azure DevOps, considering packages and images.", "visualization": "count-card"},
+            {"query": "I need to know the number of GitHub and Azure DevOps repositories, including related packages and images.", "visualization": "count-card"},
+            {"query": "Can you count all the repositories in GitHub and Azure DevOps, along with package and image connections?", "visualization": "count-card"}
+        ]
+    }
+]
